@@ -75,12 +75,17 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-}
+# DATABASES = {
+#        'default': {
+#            'ENGINE': 'djongo',
+#            'NAME': 'blackcof',
+#            "CLIENT": {
+#                'host':'mongodb+srv://ayushsaraf1:sarafayush1@cluster0.qyb7ajd.mongodb.net/',
+#                'username':'ayushsaraf1',
+#                'password':'sarafayush1',
+#            }
+#        }
+# }
 
 
 # Password validation
