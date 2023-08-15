@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index2.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  
+
+    <script src="{% static 'js/index.js' %}"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <title> My Dashbard </title>
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header" style="background-color: black;">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> <img src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="{% url 'home' %}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> DASHBOARD</span> </a>
+                <div class="nav_list"> 
+
+                    <a href="{% url 'home' %}" class="nav_link active"> 
+                        <i class='bx bx-grid-alt nav_icon'></i> 
+                        <span class="nav_name">Dashboard</span> </a>
+                      <a href="{% url 'home' %}" class="nav_link"> 
+                          <i class='bx bx-bar-chart-alt-2 nav_icon'></i> 
+                          <span class="nav_name"> graph </span> </a> 
+                      <a href="{% url 'home' %}" class="nav_link"> 
+                          <i class='bx bx-message-square-detail nav_icon'></i> 
+                          <span class="nav_name">filters</span> </a> 
+                      <a href="{% url 'visual' %}" class="nav_link">
+                           <i class='bx bx-folder nav_icon'></i> 
+                           <span class="nav_name"> Visuals </span> </a> 
+                      <a href="{% url 'demo' %}" class="nav_link"> 
+                           <i class='bx bx-user nav_icon'></i> 
+                           <span class="nav_name">Sign Out</span> </a>
+                </div>
+            </div> 
+        </nav>
+    </div>
+
+    <div style="margin-left: -5%;margin-right: -16px; background-color: #181924; margin-top: 3%;">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6" style="padding: 100px 100px 20px 300px">
+                <img class="zoom" src="{% static 'images/image1.jpeg' %}" height="400px" width="800px">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-6 col-lg-6" style="padding: 50px 100px 20px 300px">
+                <img class="zoom" src="{% static 'images/image2.jpeg' %}" height="400px" width="800px">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-6 col-lg-6" style="padding: 50px 100px 20px 300px">
+                <img class="zoom" src="{% static 'images/image1.jpeg' %}" height="400px" width="800px">
+            </div>
+        </div>
+
+        <h1 style="height: 400px;"> d </h1>
+
+
+    </div>
+</body>
+</html>
+

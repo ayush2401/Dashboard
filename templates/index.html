@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index2.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  
+
+    <script src="{% static 'js/index.js' %}"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    
+    <title> My Dashbard </title>
+</head>
+
+<body id="body-pd">
+
+    <!-- navigation bar starts-->
+
+    <header class="header" id="header" style="background-color: black;">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> <img src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> DASHBOARD</span> </a>
+                <div class="nav_list"> 
+
+                    <a href="#bar0" class="nav_link active"> 
+                      <i class='bx bx-grid-alt nav_icon'></i> 
+                      <span class="nav_name"> Statistics </span> </a>
+                    <a href="#Chart1" class="nav_link"> 
+                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i> 
+                        <span class="nav_name"> Plots </span> </a> 
+                    <a href="#form" class="nav_link"> 
+                        <i class='bx bx-message-square-detail nav_icon'></i> 
+                        <span class="nav_name"> Filters </span> </a> 
+                    <a href="{% url 'visual' %}" class="nav_link">
+                         <i class='bx bx-folder nav_icon'></i> 
+                         <span class="nav_name"> Visuals </span> </a> 
+                    <a href="{% url 'demo' %}" class="nav_link"> 
+                         <i class='bx bx-user nav_icon'></i> 
+                         <span class="nav_name">Sign Out</span> </a> 
+                </div>
+            </div> 
+        </nav>
+    </div>
+
+    <!-- navigation bar ends -->
+
+
+    <!--Container Main start-->
+    <div style="margin-left: -5%;margin-right: -16px; background-color: #181924;">
+
+      <h1 style="height: 200px; padding-top: 100px; padding-left: 70px; color: white;"> Welcome User! </h1>
+
+      <!-- bar charts -->
+      <div class="row" id="rowbox">
+        <div class="col-lg-6 col-xl-6 mb-4">
+          <div class="Chartbox0">
+            <canvas id="bar0"></canvas>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-6 mb-4">
+          <div class="Chartbox0">
+            <canvas id="bar1"></canvas>
+          </div>
+        </div>
+      </div>
+    
+      <p style="width: 100%;"></p>
+
+      <!-- 4 boxes -->
+      <div class="row" id="rowbox">
+        <div class="col-lg-6 col-xl-3 mb-4">
+          <div class="card bg-primary text-white h-100">
+              <div class="card-body">
+                  <div class="d-flex  padding-top:justify-content-between align-items-center">
+                      <div class="me-3">
+                          <div class="text-white-75 small">United States of America </div>
+                          <div class="text-lg fw-bold">112</div>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar feather-xl text-white-50"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between small">
+                  <a id="popup-link" class = "text-white stretched-link" href="#!">View Report</a>
+                  <div id="popup" class="popup">
+                    <img src="{% static 'images/image1.jpeg' %}" alt="Popup Image">
+                    <button id="close-button"> X </button>
+                  </div>
+                  <div class="text-white"><svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-3 mb-4">
+          <div class="card bg-warning text-white h-100">
+              <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <div class="me-3">
+                          <div class="text-white-75 small">Earnings (Annual)</div>
+                          <div class="text-lg fw-bold">$215,000</div>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign feather-xl text-white-50"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  </div>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between small">
+                  <a class="text-white stretched-link" href="#!">View Report</a>
+                  <div class="text-white"><svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-3 mb-4">
+          <div class="card bg-success text-white h-100">
+              <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <div class="me-3">
+                          <div class="text-white-75 small">Task Completion</div>
+                          <div class="text-lg fw-bold">24</div>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square feather-xl text-white-50"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                  </div>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between small">
+                  <a class="text-white stretched-link" href="#!">View Tasks</a>
+                  <div class="text-white"><svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-3 mb-4">
+          <div class="card bg-danger text-white h-100">
+              <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <div class="me-3">
+                          <div class="text-white-75 small">Pending Requests</div>
+                          <div class="text-lg fw-bold">17</div>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle feather-xl text-white-50"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  </div>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between small">
+                  <a class="text-white stretched-link" href="#!">View Requests</a>
+                  <div class="text-white"><svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
+              </div>
+          </div>
+        </div>
+      </div>
+     
+      <p style="width: 100%;"></p>
+
+      
+      <!-- donut chart + list-->
+      <div class="row" id="rowbox">
+        <div class="col-lg-6 col-xl-6 mb-2">
+          <div id="Chart1" class="Chartbox" style="margin-left: 1px;background-color: #34353e;">
+            <canvas id="donut0"></canvas>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-6 mb-2">
+
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front" style="padding-top: 40px;">
+                    <p> {{ bflabel.0 }} </p>
+                  </div>
+                  <div class="flip-card-back">
+                    <div class="details" style="display: flex;">
+                      <p style="width: 50%; background-color: #181924; height: 100px; padding-top: 40px;">R = {{cat1.0}}</p>
+                      <p style="width: 50%; background-color: #d70000; height: 100px; padding-top: 40px;">L = {{ cat2.0 }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front" style="padding-top: 40px;">
+                    <p> {{ bflabel.1 }} </p>
+                  </div>
+                  <div class="flip-card-back">
+                    <div class="details" style="display: flex;">
+                      <p style="width: 50%; background-color: #181924; height: 100px; padding-top: 40px;">R = {{cat1.1}}</p>
+                      <p style="width: 50%; background-color: #d70000; height: 100px; padding-top: 40px;">L = {{ cat2.1 }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front" style="padding-top: 40px;">
+                    <p> {{ bflabel.2 }} </p>
+                  </div>
+                  <div class="flip-card-back">
+                    <div class="details" style="display: flex;">
+                      <p style="width: 50%; background-color: #181924; height: 100px; padding-top: 40px;">R = {{cat1.2}}</p>
+                      <p style="width: 50%; background-color: #d70000; height: 100px; padding-top: 40px;">L = {{ cat2.2 }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front" style="padding-top: 40px;">
+                    <p> {{ bflabel.3 }} </p>
+                  </div>
+                  <div class="flip-card-back">
+                    <div class="details" style="display: flex;">
+                      <p style="width: 50%; background-color: #181924; height: 100px; padding-top: 40px;">R = {{cat1.3}}</p>
+                      <p style="width: 50%; background-color: #d70000; height: 100px; padding-top: 40px;">L = {{ cat2.3 }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front" style="padding-top: 40px;">
+                    <p> {{ bflabel.4 }} </p>
+                  </div>
+                  <div class="flip-card-back">
+                    <div class="details" style="display: flex;">
+                      <p style="width: 50%; background-color: #181924; height: 100px; padding-top: 40px;">R = {{cat1.4}}</p>
+                      <p style="width: 50%; background-color: #d70000; height: 100px; padding-top: 40px;">L = {{ cat2.4 }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="flip-card">
+                <div class="flip-card-inner" style="height: 50px;">
+                  <div class="flip-card-front" style="padding-top: 10px; background-color: aliceblue; color: #181924;">
+                    <p> Relevance and likelihood are related </p>
+                  </div>
+                  <div class="flip-card-back">
+                    <div class="details" style="display: flex;">
+                      <p style="width: 100%; background-color: #cc0808; height: 50px; padding-top: 10px;"> mean absolute difference = {{mean}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p style="width: 100%;"></p>
+
+      <!-- faded chart -->
+      <div class="row" id="rowbox">
+        <div class="col-lg-12 mb-2" >
+          <div id="Chart2" class="Chartbox" style="margin-left: 1px;background-color: #2a2b36;">
+            <canvas id="faded"></canvas>
+          </div>
+        </div>
+      </div>
+   
+      <p style="width: 100%;">c</p>
+      
+      <!-- form -->
+      <form  class= "row g-3 bg-gradient bg bg-dark" method="post" id="form">
+        {% csrf_token %}
+          <p style="color: white;" > Apply Filters: </p>
+
+        <div class="form-group col-md-4">
+          <input type="text" id="l1" list="list1" class="form-control form-control-sm" name="sector" placeholder="Enter sector">
+          <datalist id="list1">
+            {% for i in choose.1 %}
+            <option value={{i}}>
+            {% endfor %}
+          </datalist>
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" id="l2" list="list2" class="form-control form-control-sm" name="topic" placeholder="Enter topic">
+          <datalist id="list2">
+            {% for i in choose.2 %}
+            <option value={{i}}>
+            {% endfor %}
+          </datalist>
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" id="l3" list="list3" class="form-control form-control-sm" name="region" placeholder="Enter region">
+          <datalist id="list3">
+            {% for i in choose.3 %}
+            <option value={{i}}>
+            {% endfor %}
+          </datalist>
+        </div>
+
+        <div class="form-group col-md-3">
+          <input type="text" id="l4" list="list4" class="form-control form-control-sm" name="source" placeholder="Enter source">
+          <datalist id="list4">
+            {% for i in choose.5 %}
+            <option value={{i}}>
+            {% endfor %}
+          </datalist>
+        </div>
+
+        <div class="form-group col-md-3">
+          <input type="text" id="l5" list="list5" class="form-control form-control-sm" name="country" placeholder="Enter country">
+          <datalist id="list5">
+            {% for i in choose.6 %}
+            <option value={{i}}>
+            {% endfor %}
+          </datalist>
+        </div>
+
+        <div class="form-group col-md-3">
+          <input type="text" id="l6" list="list6" class="form-control form-control-sm" name="end_year" placeholder="Select year">
+          <datalist id="list6">
+            {% for i in choose.0 %}
+            <option value={{i}}>
+            {% endfor %}
+          </datalist>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <input type="text" id="l7" list="list7" class="form-control form-control-sm" name="pestle" placeholder="pestle">
+          <datalist id="list7">
+            {% for i in choose.4 %}
+            <option value={{i}}>
+            {% endfor %}
+          </datalist>
+        </div>
+
+        <button id = "button" type="submit" class="btn btn-primary btn-dark btn-block btn-sm">Submit</button>
+      </form>
+
+      <!-- url table -->
+      <table class="table table-dark" style="margin-bottom: -2rem;">
+        <tbody>
+          {% for i in url %}
+          <tr>
+            <th scope="row"> {{ forloop.counter}}</th>
+            <td> <a href={{i}}> {{i}}</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table> 
+        
+    </div>
+        <!--Container Main end-->
+</body>
+</html>
+
+<!-- scripts start  -->
+
+<script>
+  
+  // donut chart
+  var ctx = document.getElementById('donut0')
+  var cty = document.getElementById('donut1')
+  config = {
+      type: 'pie',
+      data: {
+        labels: {{ labels | safe}},
+        datasets: [{
+          label: '# of entries for sector energy',
+          data: {{data | safe}},
+          borderWidth: 1,  
+        }]
+       },
+       options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Distribution of sector Energy',
+            },
+            legend: {
+              labels: {
+                color: 'white' // Set the font color of the labels
+              }
+            }
+          },
+       }
+    }
+    
+  new Chart(ctx, config);
+  new Chart(cty , config);
+
+  // bar chart
+  var ctx = document.getElementById('bar0')
+  var cty = document.getElementById('bar1')
+  
+  var config = {
+      type: 'bar',
+      data: {
+        labels: {{ continent | safe}},
+        datasets: [{
+          label: '# of Articles',
+          data: {{values | safe}},
+          borderWidth: 1,
+          fill: true,
+          borderWidth: 1,
+          borderColor: '#ffff00',
+        }]
+      },
+      options: {
+        
+          scales: {
+              y: {
+                ticks: { color: '#00ff00', beginAtZero: true }
+              },
+              x: {
+                ticks: { color: '#ff0000', beginAtZero: true }
+              }
+          }
+      }
+ }
+
+    new Chart(ctx, config);
+    new Chart(cty, config);
+    
+    const colors = {
+  purple: {
+    default: "rgba(149, 76, 233, 1)",
+    half: "rgba(149, 76, 233, 0.5)",
+    quarter: "rgba(149, 76, 233, 0.25)",
+    zero: "rgba(149, 76, 233, 0)"
+  },
+  indigo: {
+    default: "rgba(80, 102, 120, 1)",
+    quarter: "rgba(80, 102, 120, 0.25)"
+  }
+};
+
+const weight = {{ fyear | safe}}
+const labels = {{year | safe}}
+
+var ctx = document.getElementById("faded").getContext("2d");
+ctx.canvas.height = 80;
+
+gradient = ctx.createLinearGradient(0, 25, 0, 300);
+gradient.addColorStop(0, colors.purple.half);
+gradient.addColorStop(0.35, colors.purple.quarter);
+gradient.addColorStop(1, colors.purple.zero);
+
+var config = {
+  type: "line",
+  data: {
+    labels: labels,
+    datasets: [
+      {
+        label: "No of urls",
+        fill: true,
+        backgroundColor: gradient,
+        pointBackgroundColor: colors.purple.default,
+        borderColor: colors.purple.default,
+        data: weight,
+        lineTension: 0.2,
+        borderWidth: 2,
+        pointRadius: 3
+      }
+    ]
+  },
+  options: {
+    layout: {
+      padding: 10
+    },
+    responsive: true,
+    legend: {
+      display: false
+    },
+
+    scales: {
+      xAxes: [
+        {
+          gridLines: {
+            display: false
+          },
+          ticks: {
+            padding: 10,
+            autoSkip: false,
+            maxRotation: 15,
+            minRotation: 15
+          }
+        }
+      ],
+      yAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: "Weight in KG",
+            padding: 10
+          },
+          gridLines: {
+            display: true,
+            color: colors.indigo.quarter
+          },
+          ticks: {
+            beginAtZero: false,
+            max: 63,
+            min: 57,
+            padding: 10
+          }
+        }
+      ]
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: "Frequency of topics in each year",
+        position: 'bottom',
+        color: 'rgba(149, 76, 233, 1)',
+        font: {
+          size: 14
+        }
+      }
+    }
+  }
+};
+
+new Chart(ctx, config);
+Chart.defaults.global.defaultFontColor = colors.indigo.default;
+Chart.defaults.global.defaultFontFamily = "Fira Sans";
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    Highcharts.chart('butterfly-chart', {
+                chart: {
+                    type: 'column',
+                    inverted: 'true',
+                },
+                title: {
+                    text: 'Butterfly Chart Example'
+                },
+                legend: {
+                  verticalAlign: 'top',
+                },
+                xAxis: {
+                    categories: {{ bflabel | safe}},
+                },
+                yAxis: {
+                    title: {
+                        text: 'Value'
+                    },
+                    labels: {
+                      enabled: false
+                    }
+                  
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    },
+                    series: {
+                      grouping: 'false'
+                    }
+                },
+                series: [
+                    {
+                        name: 'Set 1',
+                        data: {{cat1 | safe}},
+                    },
+                    {
+                        name: 'Set 2',
+                        data: {{cat2 | safe}},
+                    }
+                ]
+            });
+});
+
+
+</script>
+
