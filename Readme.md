@@ -1,20 +1,22 @@
 # Install virtual env
 
-pip install virtualenv
+<p> pip install virtualenv </p>
 
 # make new env
 
-python -m virtualenv env
+<p> python -m virtualenv env </p>
 
 # activate
 
-cd env
-cd Scripts
-.\activate
-cd ..
+<p> cd env </p>
+<p> cd Scripts </p>
+<p> .\activate </p>
+<p> cd .. </p>
+<p> cd .. </p>
+<p>  pip install Django </p>
 
 # clone the repo
 
-cd dashboard
+</p> cd dashboard </p>
 
-python manage.py runserver
+<p> python manage.py runserver </p>
