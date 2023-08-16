@@ -13,7 +13,7 @@
 <p> .\activate </p>
 <p> cd .. </p>
 <p> cd .. </p>
-<p>  pip install Django </p>
+<p>  pip install -r requirements.txt </p>
 
 # clone the repo
 
