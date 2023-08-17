@@ -20,3 +20,6 @@
 </p> cd dashboard </p>
 
 <p> python manage.py runserver </p>
+
+
+Link to the deployed application - https://dashboard-dvh6vv204-ayush2401.vercel.app/
