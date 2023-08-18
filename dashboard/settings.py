@@ -76,17 +76,12 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#        'default': {
-#            'ENGINE': 'djongo',
-#            'NAME': 'blackcof',
-#            "CLIENT": {
-#                'host':'mongodb+srv://ayushsaraf1:sarafayush1@cluster0.qyb7ajd.mongodb.net/',
-#                'username':'ayushsaraf1',
-#                'password':'sarafayush1',
-#            }
-#        }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
+    }
+}
 
 
 # Password validation
@@ -129,8 +124,8 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 
-# MEDIA_URL = 'images/'
-# MEDIA_ROOT = BASE_DIR/'static'
+MEDIA_URL = 'images/'
+MEDIA_ROOT = BASE_DIR/'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

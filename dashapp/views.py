@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .models import database
+from .models import *
 import pycountry_convert as pc
 from django.http import HttpResponse , HttpResponseRedirect
 from django.urls import reverse
@@ -14,6 +14,7 @@ def country_to_continent(country_name):
 
 
 def index(request):
+
 
     d , l , urls = [] , [] , []
     continents = []
@@ -77,7 +78,6 @@ def index(request):
     intensity = OrderedDict(sorted(intensity.items() , key=lambda x:x[1]))
     year = OrderedDict(sorted(year.items()))
 
-    print(intensity)
 
     most , mval = ['',''] , [0 , 0]
     cat1 , cat2 = [] , []
@@ -132,6 +132,8 @@ def index(request):
     if request.method == "POST": 
         
         checks = []
+        
+        
         for i in FILTERS:
             val = request.POST.get(i)
             if val != "":
@@ -146,7 +148,6 @@ def index(request):
             if ok == True and len(checks) != 0:
                 urls.append(i['url'])
 
-    
 
     context = {
         'labels':labels,
